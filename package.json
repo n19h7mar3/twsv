@@ -1,0 +1,27 @@
+{
+  "name": "twsv",
+  "scripts": {
+    "svelte-build-dev": "rollup -c -w",
+    "svelte-build-prod": "rollup -c",
+    "tailwind-build-dev": "npx tailwindcss --watch -i ./source/global.css -o ./public/build/tailwind.css",
+    "tailwind-build-prod": "npx tailwindcss --minify -i ./source/global.css -o ./public/build/tailwind.css",
+    "dev": "concurrently \"npm:svelte-build-dev\" \"npm:tailwind-build-dev\"",
+    "build": "concurrently \"npm:svelte-build-prod\" \"npm:tailwind-build-prod\"",
+    "start": "sirv public --no-clear --host 0.0.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.0.0",
+    "rollup": "^2.3.4",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-svelte": "^7.0.0",
+    "rollup-plugin-terser": "^7.0.0",
+    "svelte": "^3.0.0",
+    "tailwindcss": "^3.0.24"
+  },
+  "dependencies": {
+    "concurrently": "^7.2.1",
+    "sirv-cli": "^2.0.0"
+  }
+}
